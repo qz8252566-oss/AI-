@@ -1,0 +1,21 @@
+// 触らなくてOK
+// GitHub Codespaces を起動したときの設定です。
+{
+  "name": "なんでも図鑑カードメーカー",
+
+  // Node.js 20 が入った公式のイメージを使う
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+
+  // Codespaces ができあがったら、必要なパッケージ（express）を入れる
+  "postCreateCommand": "npm install",
+
+  // サーバーが使う 3000 番ポートを転送し、自動でブラウザを開く
+  // 公開範囲は既定の private のまま。public にすると、URL を知った他人があなたのキーで AI を使えてしまいます
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "図鑑カードメーカー",
+      "onAutoForward": "openBrowser"
+    }
+  }
+}

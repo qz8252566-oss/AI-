@@ -1,0 +1,217 @@
+/* ★ 発展課題で書き換えてOK */
+/* 画面の見た目を決めるファイルです。色や大きさを変えてみましょう。 */
+
+/* よく使う色をまとめておく */
+:root {
+  --background: #f6f4ef;
+  --text: #2b2b2b;
+  --sub-text: #6b6b6b;
+  --panel: #ffffff;
+  --border: #ddd8cc;
+  --accent: #2f5d8a;
+  --ok: #2e7d4f;
+  --ng: #b3412e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  line-height: 1.6;
+}
+
+.header,
+.main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header h1 {
+  margin: 24px 0 4px;
+  font-size: 1.8rem;
+}
+
+.lead {
+  margin: 0 0 16px;
+  color: var(--sub-text);
+}
+
+/* ---- 入力欄 ---- */
+
+.form {
+  display: flex;
+  gap: 8px;
+}
+
+.form input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.message {
+  min-height: 1.6em;
+  margin: 8px 0;
+}
+
+.message.error {
+  color: var(--ng);
+  font-weight: bold;
+}
+
+/* ---- カード ---- */
+
+.card {
+  /* --card-color は app.js が「ぶんるい」から決めて入れる */
+  border: 3px solid var(--card-color);
+  border-radius: 12px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.card-name {
+  margin: 0;
+  padding: 10px 16px;
+  background: var(--card-color);
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.card-rows {
+  margin: 0;
+  padding: 12px 16px;
+}
+
+.card-row {
+  margin-bottom: 10px;
+}
+
+.card-row dt {
+  color: var(--sub-text);
+  font-size: 0.85rem;
+}
+
+.card-row dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* 数字の項目の横棒ゲージ */
+.gauge {
+  height: 10px;
+  margin-top: 4px;
+  border-radius: 5px;
+  background: #eee;
+  overflow: hidden;
+}
+
+.gauge-bar {
+  height: 100%;
+  background: var(--card-color);
+}
+
+.current .card {
+  margin: 8px 0 16px;
+}
+
+/* ---- のぞき窓 ---- */
+
+.peek {
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.peek summary {
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.peek-body {
+  padding: 0 16px 16px;
+  overflow-wrap: anywhere; /* 長い URL がスマートフォンで画面からはみ出さないように */
+}
+
+.peek h3 {
+  margin: 16px 0 4px;
+  font-size: 1rem;
+}
+
+.peek pre {
+  margin: 0;
+  padding: 10px;
+  border-radius: 6px;
+  background: #1f2430;
+  color: #e6e6e6;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.attempt {
+  margin-top: 16px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+}
+
+.result-ok {
+  color: var(--ok);
+  font-weight: bold;
+}
+
+.result-ng {
+  color: var(--ng);
+  font-weight: bold;
+}
+
+.peek ul {
+  margin: 4px 0;
+  padding-left: 20px;
+}
+
+/* ---- 作ったカードの一覧 ---- */
+
+.history h2 {
+  font-size: 1.2rem;
+}
+
+.history-empty {
+  color: var(--sub-text);
+}
+
+.history-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.history-list .card-name {
+  font-size: 1.1rem;
+}

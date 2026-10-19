@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- ★ 発展課題で書き換えてOK -->
+<!-- 画面の骨組みです。見た目は style.css、動きは app.js が担当します。 -->
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>図鑑カードメーカー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1 id="title">図鑑カードメーカー</h1>
+    <p class="lead">言葉を入れて「つくる」を押すと、AI が図鑑のカードを作ります。</p>
+  </header>
+
+  <main class="main">
+    <!-- 入力欄と「つくる」ボタン -->
+    <form id="form" class="form">
+      <input id="word" type="text" maxlength="30" placeholder="例：たこ焼き" autocomplete="off" required>
+      <button id="button" type="submit">つくる</button>
+    </form>
+    <p id="message" class="message" aria-live="polite"></p>
+
+    <!-- いま作ったカード -->
+    <section id="current" class="current"></section>
+
+    <!-- 通信ののぞき窓（最初は閉じている） -->
+    <details id="peek" class="peek" hidden>
+      <summary>通信ののぞき窓（クリックで開く）</summary>
+      <div id="peek-body" class="peek-body"></div>
+    </details>
+
+    <!-- これまでに作ったカード -->
+    <section class="history">
+      <h2>作ったカード</h2>
+      <p id="history-empty" class="history-empty">まだありません。</p>
+      <div id="history" class="history-list"></div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
